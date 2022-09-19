@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainiBtzmz.ui'
+## Form generated from reading UI file 'mainkqcEFX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.5
 ##
@@ -30,13 +30,19 @@ class Ui_MainWindow(object):
         self.actionSave.setObjectName(u"actionSave")
         self.actionExit = QAction(MainWindow)
         self.actionExit.setObjectName(u"actionExit")
+        self.actionRegenerate_Table = QAction(MainWindow)
+        self.actionRegenerate_Table.setObjectName(u"actionRegenerate_Table")
+        self.actionNormalize = QAction(MainWindow)
+        self.actionNormalize.setObjectName(u"actionNormalize")
+        self.actionReset_Normalization = QAction(MainWindow)
+        self.actionReset_Normalization.setObjectName(u"actionReset_Normalization")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
         self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setMinimumSize(QSize(400, 400))
-        self.horizontalLayout_2 = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.gridLayout_3 = QGridLayout(self.centralwidget)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -144,6 +150,7 @@ class Ui_MainWindow(object):
         self.tableView = QTableView(self.Table)
         self.tableView.setObjectName(u"tableView")
         self.tableView.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.tableView.setShowGrid(True)
         self.tableView.setSortingEnabled(False)
         self.tableView.horizontalHeader().setCascadingSectionResizes(True)
         self.tableView.horizontalHeader().setMinimumSectionSize(100)
@@ -211,13 +218,75 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.setStretch(1, 2)
         self.tabWidget.addTab(self.Image, "")
+        self.plots = QWidget()
+        self.plots.setObjectName(u"plots")
+        self.gridLayout_4 = QGridLayout(self.plots)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.verticalSpacer_2 = QSpacerItem(4, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_4.addItem(self.verticalSpacer_2, 1, 1, 2, 1)
+
+        self.groupBox = QGroupBox(self.plots)
+        self.groupBox.setObjectName(u"groupBox")
+        sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
+        self.groupBox.setSizePolicy(sizePolicy)
+        self.groupBox.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.groupBox.setFlat(True)
+        self.groupBox.setCheckable(False)
+        self.verticalLayout_6 = QVBoxLayout(self.groupBox)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.file_list = QVBoxLayout()
+        self.file_list.setObjectName(u"file_list")
+
+        self.verticalLayout_6.addLayout(self.file_list)
+
+
+        self.gridLayout_4.addWidget(self.groupBox, 1, 0, 1, 1)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.generate_plot = QPushButton(self.plots)
+        self.generate_plot.setObjectName(u"generate_plot")
+
+        self.horizontalLayout_2.addWidget(self.generate_plot)
+
+        self.save_plot = QPushButton(self.plots)
+        self.save_plot.setObjectName(u"save_plot")
+
+        self.horizontalLayout_2.addWidget(self.save_plot)
+
+
+        self.gridLayout_4.addLayout(self.horizontalLayout_2, 2, 0, 1, 1)
+
+        self.scrollArea = QScrollArea(self.plots)
+        self.scrollArea.setObjectName(u"scrollArea")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
+        self.scrollArea.setSizePolicy(sizePolicy1)
+        self.scrollArea.setMinimumSize(QSize(600, 600))
+        self.scrollArea.setWidgetResizable(True)
+        self.plot_container = QWidget()
+        self.plot_container.setObjectName(u"plot_container")
+        self.plot_container.setGeometry(QRect(0, 0, 596, 596))
+        self.verticalLayout_7 = QVBoxLayout(self.plot_container)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.scrollArea.setWidget(self.plot_container)
+
+        self.gridLayout_4.addWidget(self.scrollArea, 1, 2, 2, 1)
+
+        self.gridLayout_4.setColumnStretch(0, 1)
+        self.gridLayout_4.setColumnStretch(2, 2)
+        self.gridLayout_4.setColumnMinimumWidth(2, 600)
+        self.tabWidget.addTab(self.plots, "")
 
         self.horizontalLayout.addWidget(self.tabWidget)
 
         self.horizontalLayout.setStretch(0, 1)
         self.horizontalLayout.setStretch(2, 4)
 
-        self.horizontalLayout_2.addLayout(self.horizontalLayout)
+        self.gridLayout_3.addLayout(self.horizontalLayout, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -225,16 +294,22 @@ class Ui_MainWindow(object):
         self.menubar.setGeometry(QRect(0, 0, 1200, 30))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
+        self.menuTools = QMenu(self.menubar)
+        self.menuTools.setObjectName(u"menuTools")
         MainWindow.setMenuBar(self.menubar)
 
         self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuTools.menuAction())
         self.menuFile.addAction(self.actionOpen)
         self.menuFile.addAction(self.actionSave)
         self.menuFile.addAction(self.actionExit)
+        self.menuTools.addAction(self.actionRegenerate_Table)
+        self.menuTools.addAction(self.actionNormalize)
+        self.menuTools.addAction(self.actionReset_Normalization)
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -251,15 +326,28 @@ class Ui_MainWindow(object):
         self.actionSave.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+S", None))
 #endif // QT_CONFIG(shortcut)
         self.actionExit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.actionRegenerate_Table.setText(QCoreApplication.translate("MainWindow", u"Regenerate Table", None))
+        self.actionNormalize.setText(QCoreApplication.translate("MainWindow", u"Normalize", None))
+        self.actionReset_Normalization.setText(QCoreApplication.translate("MainWindow", u"Reset Normalization", None))
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("MainWindow", u"Experiment", None));
-        self.coords.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Details</span></p></body></html>", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">TF1</span></p></body></html>", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Intensity</span></p></body></html>", None))
+        self.coords.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\"\n"
+"                                                font-size:12pt; font-weight:600;\">Details</span></p></body></html>\n"
+"                                            ", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span\n"
+"                                                            style=\" font-size:14pt; font-weight:600;\">TF1</span></p></body></html>\n"
+"                                                        ", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span\n"
+"                                                            style=\" font-size:14pt; font-weight:600;\">Intensity</span></p></body></html>\n"
+"                                                        ", None))
         self.intensity.setText("")
         self.area.setText("")
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Area</span></p></body></html>", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">TF2</span></p></body></html>", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span\n"
+"                                                            style=\" font-size:14pt; font-weight:600;\">Area</span></p></body></html>\n"
+"                                                        ", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span\n"
+"                                                            style=\" font-size:14pt; font-weight:600;\">TF2</span></p></body></html>\n"
+"                                                        ", None))
         self.tf2.setText("")
         self.tf1.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Table), QCoreApplication.translate("MainWindow", u"Table", None))
@@ -270,6 +358,11 @@ class Ui_MainWindow(object):
         self.showSegmentation.setText(QCoreApplication.translate("MainWindow", u"Show Segmentation", None))
         self.resetView.setText(QCoreApplication.translate("MainWindow", u"Reset View", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Image), QCoreApplication.translate("MainWindow", u"Image", None))
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Select Files", None))
+        self.generate_plot.setText(QCoreApplication.translate("MainWindow", u"Generate", None))
+        self.save_plot.setText(QCoreApplication.translate("MainWindow", u"Save", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.plots), QCoreApplication.translate("MainWindow", u"Plots", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
+        self.menuTools.setTitle(QCoreApplication.translate("MainWindow", u"Tools", None))
     # retranslateUi
 

@@ -70,6 +70,9 @@
      </item>
      <item>
       <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(17, 129, 0);</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -80,6 +83,9 @@
      </item>
      <item>
       <widget class="QLabel" name="label_5">
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(17, 129, 0);</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -111,10 +117,16 @@
          <height>128</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(17, 129, 0);</string>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_6">
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(0, 153, 255);</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -125,6 +137,9 @@
      </item>
      <item>
       <widget class="QLabel" name="label_7">
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(0, 153, 255);</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -153,10 +168,16 @@
          <height>128</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(0, 153, 255);</string>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_8">
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 210, 96);</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -167,6 +188,9 @@
      </item>
      <item>
       <widget class="QLabel" name="label_9">
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 210, 96);</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -189,10 +213,16 @@
          <height>128</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 210, 96);</string>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="label_10">
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(170, 0, 0);</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -203,6 +233,9 @@
      </item>
      <item>
       <widget class="QLabel" name="label_11">
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(170, 0, 0);</string>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -230,6 +263,9 @@
          <width>128</width>
          <height>128</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(170, 0, 0);</string>
        </property>
       </widget>
      </item>
