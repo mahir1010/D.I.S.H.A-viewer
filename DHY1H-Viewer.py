@@ -156,6 +156,7 @@ class DHY1H_Viewer(QMainWindow):
         self.ui.actionExit.triggered.connect(self.close)
         self.ui.actionOpen.triggered.connect(self.open_file)
         self.ui.actionSave.triggered.connect(self.save_file)
+        self.ui.actionExport.triggered.connect(self.export_excel)
         self.experiment = None
         self.fileName = None
         self.scene = AssayGraphicsScene()
@@ -197,6 +198,15 @@ class DHY1H_Viewer(QMainWindow):
         self.plots={}
         self.ui.save_plot.clicked.connect(self.save_plots)
         self.ui.actionReset_Normalization.triggered.connect(self.reset_normalization)
+
+    def export_excel(self):
+        if self.experiment is not None:
+            export_folder = str(QFileDialog.getExistingDirectory(self, "Select Directory"))
+            if export_folder:
+                for image in self.experiment.images:
+                    if not image.exception_occurred:
+                        image.display_dataframe.to_csv(os.path.join(export_folder,(image.name.split('.')[0])+'.csv'),index=False)
+
 
     def reset_normalization(self):
         imgs = [img for img in self.experiment.images if not img.exception_occurred]

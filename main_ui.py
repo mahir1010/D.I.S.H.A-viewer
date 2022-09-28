@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainkqcEFX.ui'
+## Form generated from reading UI file 'mainujKBOS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.5
 ##
@@ -36,6 +36,8 @@ class Ui_MainWindow(object):
         self.actionNormalize.setObjectName(u"actionNormalize")
         self.actionReset_Normalization = QAction(MainWindow)
         self.actionReset_Normalization.setObjectName(u"actionReset_Normalization")
+        self.actionExport = QAction(MainWindow)
+        self.actionExport.setObjectName(u"actionExport")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
@@ -302,6 +304,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuTools.menuAction())
         self.menuFile.addAction(self.actionOpen)
         self.menuFile.addAction(self.actionSave)
+        self.menuFile.addAction(self.actionExport)
         self.menuFile.addAction(self.actionExit)
         self.menuTools.addAction(self.actionRegenerate_Table)
         self.menuTools.addAction(self.actionNormalize)
@@ -329,6 +332,7 @@ class Ui_MainWindow(object):
         self.actionRegenerate_Table.setText(QCoreApplication.translate("MainWindow", u"Regenerate Table", None))
         self.actionNormalize.setText(QCoreApplication.translate("MainWindow", u"Normalize", None))
         self.actionReset_Normalization.setText(QCoreApplication.translate("MainWindow", u"Reset Normalization", None))
+        self.actionExport.setText(QCoreApplication.translate("MainWindow", u"Export", None))
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("MainWindow", u"Experiment", None));
         self.coords.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\"\n"
