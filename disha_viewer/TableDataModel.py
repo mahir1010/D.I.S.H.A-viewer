@@ -3,7 +3,7 @@ from PIL.ImageQt import ImageQt
 from PySide2.QtCore import QAbstractTableModel, Qt, QSize, Signal
 from PySide2.QtGui import QPixmap, QColor
 
-from Image import Image
+from disha.Image import Image
 
 
 class TableModel(QAbstractTableModel):

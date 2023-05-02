@@ -1,10 +1,10 @@
 import sys
 from PySide2.QtUiTools import QUiLoader
 
-from PlotCanvas import render_heatmap
+from disha_viewer import get_resource
+from disha_viewer.PlotCanvas import render_heatmap
 
-sys.path.append('/home/mahirp/Projects/Heterodimer-Y1H-Analysis/')
-from TableDataModel import TableModel
+from disha_viewer.TableDataModel import TableModel
 
 from PySide2.QtWidgets import QApplication, QFileDialog, QMainWindow, QTreeWidgetItem, QGraphicsScene, \
     QGraphicsPixmapItem, QCompleter, QHeaderView, QGraphicsView, QFrame, QDialog, QLabel, QHBoxLayout, QMessageBox, \
@@ -12,14 +12,14 @@ from PySide2.QtWidgets import QApplication, QFileDialog, QMainWindow, QTreeWidge
 from PySide2.QtGui import QPixmap, Qt, QMovie
 from PySide2.QtCore import Signal, QRectF, QThread
 
-from main_ui import Ui_MainWindow
-from Image import *
+from disha_viewer.main_ui import Ui_MainWindow
+from disha.Image import *
 import bz2
 import pickle
 import numpy as np
 from PIL import Image
 from PIL.ImageQt import ImageQt
-from coordinate_dialog import Ui_CoordinateDialog
+from disha_viewer.coordinate_dialog import Ui_CoordinateDialog
 
 
 class ImageViewer(QGraphicsView):
@@ -180,7 +180,7 @@ class DHY1H_Viewer(QMainWindow):
         self.dialog.setFixedSize(256, 256)
         self.dialog.setWindowFlag(Qt.FramelessWindowHint)
         self.dialog.setAttribute(Qt.WA_TranslucentBackground)
-        _loading_icon = QMovie('./resources/loading.gif')
+        _loading_icon = QMovie(get_resource('loading.gif'))
         label = QLabel()
         label.setMovie(_loading_icon)
         label.setFixedSize(200, 200)
@@ -233,7 +233,7 @@ class DHY1H_Viewer(QMainWindow):
             self.ui.plot_container.layout().addWidget(canvas)
 
     def normalize_data(self):
-        dialog = self.loader.load('./resources/normalization_dialog.ui', self)
+        dialog = self.loader.load(get_resource('normalization_dialog.ui'), self)
 
         def normalize():
             self.experiment.normalize_data(normalization_type="Z-Score" if dialog.zscore.isChecked() else "Percent",
@@ -251,7 +251,7 @@ class DHY1H_Viewer(QMainWindow):
         if self.imageObj is None:
             return
         coordinates = self.imageObj.dataframe['Coordinate'].unique().tolist()
-        dialog = self.loader.load('./resources/coordinate_dialog.ui', self)
+        dialog = self.loader.load(get_resource('coordinate_dialog.ui'), self)
         dialog.coordinate_entry.setCompleter(QCompleter(coordinates))
 
         def load_coordinate(event):
@@ -407,11 +407,13 @@ class DHY1H_Viewer(QMainWindow):
         pixmap = QPixmap.fromImage(ImageQt(self.currentImage))
         self.ui.imageView.draw_frame(pixmap, self.imageObj)
 
-
-if __name__ == "__main__":
+def launch_ui():
     app = QApplication(sys.argv)
 
     window = DHY1H_Viewer()
     window.show()
 
     sys.exit(app.exec_())
+    
+if __name__ == "__main__":
+    launch_ui()
